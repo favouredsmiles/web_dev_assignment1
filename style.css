@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Sofia+Sans&display=swap'); 
+/* @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap'); */ /* import Cabin font */
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Sofia+Sans&display=swap'); /* import Cabin & Sofia font */
 
 
-/* initial css reset */
+/* apply css reset */
 
 *, * ::before, * ::after {
   box-sizing: border-box;
@@ -12,16 +13,16 @@
   padding: 0;
 }
 
-body { 
+body { /* typographic tweaks */
   -webkit-font-smoothing: antialiased; 
 }
 
-img { 
+img { /* improve media defaults */
   display: block;
   max-width: 100%;
 }
 
-/* Main CSS  */
+/* start CSS here */
 
 .container {
   background-color: rgba(46, 196, 181, 0.04);
@@ -44,6 +45,7 @@ img {
 
 .col-2 {
   width: 580px;
+  /* height: 680px; */
   background-color: #fff;
   padding: 40px;
   border-radius: 8px;
@@ -72,6 +74,11 @@ img {
   font-size: 1rem;
   line-height: 1.5625;
   color: #737373;
+}
+
+.lead-text-2 {
+  display: none; /* display [none] removes the content and the space */
+  /* visibility: hidden; */ /* visibility removes the content but leaves the space */
 }
 
 .grid-container {
@@ -119,6 +126,14 @@ img {
   outline: 1px solid #2EC4B6;
   border-radius: 4px;
   box-shadow: 0 0 0 3px rgba(46, 196, 181, 0.1); /* x-offset | y-offset | blur | spread | color */
+}
+
+select {
+  appearance: none;
+  /* background-image: url("img/dropdown.svg");
+  background-repeat: no-repeat;
+  background-position: 95% center; */
+  background: url("img/dropdown.svg") 95% center no-repeat;
 }
 
 
@@ -171,4 +186,98 @@ font weight - thin (300), normal/regular (400), semi-bold (500-600), bold (700),
   font-weight: 600;
   letter-spacing: .1px;
   color: #011C34;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  /* appearance: none; */
+  -webkit-appearance: none;
+  moz-appearance: none;
+  margin: 0;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+input[type="date"] {
+  background: url("img/date.svg") 95% center no-repeat;
+}
+
+input[type="password"] {
+  background: url("img/eye.svg") 96% center no-repeat;
+}
+
+
+/* BUILDING FOR MOBILE RESPONSIVENESS */
+
+/* .row {
+  flex-wrap: wrap;
+} */
+
+@media screen and (max-width: 800px) {
+  .row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 90%;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+
+  .col-1 {
+    width: auto;
+    margin-top: unset;
+  }
+
+  .col-2 {
+    width: 100%;
+    padding: unset;
+    background-color: unset;
+    border-radius: unset;
+    box-shadow: none;
+  }
+
+  .container {
+    height: unset;
+    padding-block: 30px 64px;
+  }
+
+  img {
+    width: 39px;
+    margin-bottom: 40px;
+  }
+
+  .header-text {
+    font-size: 1.875rem;
+  }
+
+  .lead-text {
+    display: none;
+  }
+
+  .lead-text-2 {
+    display: block;
+    font-size: 1rem;
+    font-weight: light;
+    line-height: 1.57;
+  }
+
+  form {
+    padding: 24px 16px 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 50px 0 rgba(4, 8, 19, 0.1);
+    margin-bottom: 24px;
+  } 
+
+  .col-2 p {
+    line-height: 1.5625;
+  }
 }
